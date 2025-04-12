@@ -14,7 +14,7 @@
   "author": "Ferry Sikumbang",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/7sferry/gatsby-remark-link-on-headers.git"
+    "url": "git+https://github.com/7sferry/gatsby-remark-table-caption.git"
   },
   "private": false,
   "license": "0BSD",
