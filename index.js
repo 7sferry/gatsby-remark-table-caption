@@ -12,31 +12,16 @@ module.exports = async ({markdownAST}, pluginOptions) => {
 		}
 
 		const lastRow = rows[rows.length - 1];
-		const firstCell = lastRow.children?.[0];
+		if (lastRow?.children?.length !== 1) {
+			return;
+		}
+		const firstCell = lastRow?.children[0];
 
 		if (!firstCell) {
 			return;
 		}
 		const text = toString(firstCell).trim();
 		const captionMatch = text.match(/^\[(.+?)]$/);
-
-		function renderCaptionHtml(hastNode, captionText) {
-			return toHtml(hastNode).replace(
-					/<table>/,
-					`<table><caption class="gatsby-table-caption">${captionText}</caption>`
-			);
-		}
-
-		function renderFigcaptionHtml(hastNode, captionText) {
-			return `<figure class="gatsby-table-figure">${toHtml(hastNode).replace(/<\/table>/, `</table><figcaption class="gatsby-table-figcaption">${captionText}</figcaption>`)}</figure>`;
-		}
-
-		function getHtml(type, hastNode, captionText) {
-			if (type === "figcaption") {
-				return renderFigcaptionHtml(hastNode, captionText);
-			}
-			return renderCaptionHtml(hastNode, captionText);
-		}
 
 		if (captionMatch) {
 			rows.pop();
@@ -49,6 +34,13 @@ module.exports = async ({markdownAST}, pluginOptions) => {
 			node.value = html;
 		}
 	});
+
+	function getHtml(type, hastNode, captionText) {
+		if (type === "figcaption") {
+			return `<figure class="gatsby-table-figure">${toHtml(hastNode).replace(/<\/table>/, `</table><figcaption class="gatsby-table-figcaption">${captionText}</figcaption>`)}</figure>`;
+		}
+		return toHtml(hastNode).replace(/<table>/, `<table><caption class="gatsby-table-caption">${captionText}</caption>`);
+	}
 
 	return markdownAST;
 };
