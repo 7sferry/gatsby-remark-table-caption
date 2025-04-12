@@ -1,9 +1,9 @@
 This plugin will add link on headers for your markdown.
 
-To install, run `npm install gatsby-remark-link-on-headers gatsby-transformer-remark`. This plugin requires
+To install, run `npm install gatsby-remark-table-caption gatsby-transformer-remark`. This plugin requires
 gatsby-transformer-remark.
 
-in gatsby-config, add this under `gatsby-transformer-remark`:
+In gatsby-config, add this under `gatsby-transformer-remark`:
 
 ```js
 plugins: [{
@@ -14,7 +14,7 @@ plugins: [{
 		plugins: {
 			//other remark-plugins...
 
-			resolve: `gatsby-remark-table-caption-local`,
+					resolve: `gatsby-remark-table-caption`,
 			options: {
 				captionType: `caption`, //could be `figcaption` for sub-title figcaption. Default is `caption`.
 			},
