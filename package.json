@@ -1,0 +1,25 @@
+{
+  "name": "gatsby-remark-table-caption",
+  "version": "1.0.0",
+  "description": "A gatsby plugin to insert table caption (or figcaption)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No build script setup\""
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "author": "Ferry Sikumbang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7sferry/gatsby-remark-link-on-headers.git"
+  },
+  "private": false,
+  "license": "0BSD",
+  "bugs": {
+    "url": "https://github.com/7sferry/gatsby-remark-table-caption/issues"
+  },
+  "homepage": "https://github.com/7sferry/gatsby-remark-table-caption#readme"
+}
